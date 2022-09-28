@@ -10,11 +10,9 @@ const handler = async (req, res) => {
     return res.status(405).send();
   }
   const params = {
-    password: req.body.password,
-    username: req.body.email,
-    attributes: {
-      email: req.body.email,
-    },
+    ClientId: COGNITO_APP_CLIENT_ID,
+    Password: req.body.password,
+    Username: req.body.email,
   };
 
   const cognitoClient = new CognitoIdentityProviderClient({
