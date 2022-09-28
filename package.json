@@ -1,0 +1,40 @@
+{
+  "name": "datanac-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.154.0",
+    "@chakra-ui/layout": "^2.1.5",
+    "@chakra-ui/react": "^2.2.9",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.5.1",
+    "next": "^12.2.5",
+    "next-auth": "^4.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.25.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "eslint": "^8.22.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "jest": "^29.0.2",
+    "jest-environment-jsdom": "^29.0.2",
+    "prettier": "^2.7.1"
+  }
+}

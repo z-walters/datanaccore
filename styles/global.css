@@ -1,0 +1,21 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+	display: flex;
+    background: rgb(42, 42, 42);
+	font-size: 24px;	
+	padding: 5px 10px;
+	border-bottom: 3px solid transparent;
+	padding-left: 15%;
+	padding-right: 15%;
+	justify-content: space-between;
+}
+
+
+li{
+    display: inline;
+}
+
+
