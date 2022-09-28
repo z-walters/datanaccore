@@ -10,6 +10,17 @@
       "StackName": "amplify-datanaccore-dev-105517",
       "StackId": "arn:aws:cloudformation:us-east-2:708335597142:stack/amplify-datanaccore-dev-105517/f3a6ed91-3f45-11ed-ae6a-0250dcf75976",
       "AmplifyAppId": "dx5ba3w8zebqq"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dx5ba3w8zebqq",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "datanaccorec76c99a7": {}
+      }
     }
   }
 }

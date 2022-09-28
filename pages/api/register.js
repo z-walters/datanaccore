@@ -3,6 +3,8 @@ import {
   SignUpCommand,
 } from "@aws-sdk/client-cognito-identity-provider";
 
+import { Auth } from "aws-amplify";
+
 const { COGNITO_REGION, COGNITO_APP_CLIENT_ID } = process.env;
 
 const handler = async (req, res) => {
@@ -10,10 +12,14 @@ const handler = async (req, res) => {
     return res.status(405).send();
   }
   const params = {
-    ClientId: COGNITO_APP_CLIENT_ID,
-    Password: req.body.password,
-    Username: req.body.email,
+    password: req.body.password,
+    username: req.body.email,
+    attributes: {
+      email: req.body.email,
+    },
   };
+
+  const auth = await Auth.signUp(params);
 
   const cognitoClient = new CognitoIdentityProviderClient({
     region: COGNITO_REGION,
