@@ -22,7 +22,7 @@ const handler = async (req, res) => {
   const signUpCommand = SignUpCommand(params);
 
   try {
-    const response = await cognitoClient.send(SignUpCommand);
+    const response = await cognitoClient.send(signUpCommand);
     return res.status(response["$metadata"].httpStatusCode).send();
   } catch (err) {
     console.log(err);
