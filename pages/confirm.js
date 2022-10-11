@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import {Field, Formik} from 'formik';
 import {
   FormControl,
   FormLabel,
@@ -6,21 +6,20 @@ import {
   Flex,
   VStack,
   Input,
-  FormErrorMessage,
   Button,
-} from "@chakra-ui/react";
-import styles from "../styles/ConfirmForm.module.css";
-import InputError from "../components/InputError";
-import useValidationSchema from "../hooks/useValidationSchema";
-import useAuth from "../hooks/useAuth";
-import { useRouter } from "next/router";
-import useRegister from "../hooks/useRegister";
+} from '@chakra-ui/react';
+import InputError from '../components/InputError';
+import useValidationSchema from '../hooks/useValidationSchema';
+import useRegister from '../hooks/useRegister';
+import React from 'react';
 
+/**
+ * return confirmation page
+ * @return  {object}            confirmation page
+ */
 function Confirm() {
-  const router = useRouter();
-  const { username } = router.query;
-  const { confirm } = useRegister();
-  const { confirmSchema } = useValidationSchema();
+  const {confirm} = useRegister();
+  const {confirmSchema} = useValidationSchema();
 
   return (
     <>
@@ -28,8 +27,9 @@ function Confirm() {
         <Box bg="gray.300" p={6} w="lg">
           <Formik
             initialValues={{
-              username: username,
-              code: "",
+              email: '',
+              confrimation_code: '',
+              // username: username,
             }}
             validatioSchema={confirmSchema}
             onSubmit={confirm}
@@ -65,7 +65,31 @@ function Confirm() {
                     ></Field>
                     <InputError>{errors?.confrimation_code}</InputError>
                   </FormControl>
+                  <FormControl>
+                    <FormLabel html="email">Email</FormLabel>
+                    <Field
+                      id="email"
+                      as={Input}
+                      name="email"
+                      type="text"
+                      variant="filled"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values?.email}
+                      placeholder="Enter Code Here"
+                    ></Field>
+                    <InputError>{errors?.email}</InputError>
+                  </FormControl>
                 </VStack>
+                <Button
+                  type="submit"
+                  colorScheme="gray"
+                  width="full"
+                  marginTop={12}
+                  isSubmitting={isSubmitting}
+                >
+                  Submit
+                </Button>
               </form>
             )}
           </Formik>

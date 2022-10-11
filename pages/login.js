@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import {Field, Formik} from 'formik';
 import {
   FormControl,
   FormLabel,
@@ -6,25 +6,30 @@ import {
   Flex,
   VStack,
   Input,
-  FormErrorMessage,
   Button,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
+import React from 'react';
 // import styles from "../styles/LoginForm.module.css";
-import InputError from "../components/InputError";
-import useValidationSchema from "../hooks/useValidationSchema";
-import useAuth from "../hooks/useAuth";
+import InputError from '../components/InputError';
+import useValidationSchema from '../hooks/useValidationSchema';
+import useAuth from '../hooks/useAuth';
 
+/**
+ * return login page
+ * @return  {object}            login page
+ */
 function Login() {
-  const { loginSchema } = useValidationSchema();
-  const { login } = useAuth();
+  const {loginSchema} = useValidationSchema();
+  const {login} = useAuth();
+
   return (
     <>
       <Flex align="center" justify="center" h="100vh">
         <Box bg="gray.300" p={6} w="lg">
           <Formik
             initialValues={{
-              email: "",
-              password: "",
+              email: '',
+              password: '',
             }}
             validationSchema={loginSchema}
             onSubmit={login}
@@ -79,7 +84,6 @@ function Login() {
                   colorScheme="gray"
                   width="full"
                   marginTop={12}
-                  isSubmitting={isSubmitting}
                 >
                   Login
                 </Button>

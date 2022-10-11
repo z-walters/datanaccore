@@ -1,11 +1,12 @@
-import { Box, Center, Heading, Stack, Text } from "@chakra-ui/react";
-import styles from "../styles/IntroSections.module.css";
-import Image from "next/image";
+import {Box, Center, Heading, Stack, Text} from '@chakra-ui/react';
+import styles from '../styles/IntroSections.module.css';
+import Image from 'next/image';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Grid, GridItem} from '@chakra-ui/react';
+import {useEffect, useRef, useState} from 'react';
 
-import { Grid, GridItem } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
-
-const FadeIn = ({ children }) => {
+const FadeIn = ({children}) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
   useEffect(() => {
@@ -18,20 +19,20 @@ const FadeIn = ({ children }) => {
   return (
     <Box
       ref={domRef}
-      className={`${styles.card} ${isVisible ? styles.visible : ""}`}
+      className={`${styles.card} ${isVisible ? styles.visible : ''}`}
     >
       {children}
     </Box>
   );
 };
-const IntroCard = ({ entry, id }) => {
+const IntroCard = ({entry, id}) => {
   const image = (
     <GridItem colSpan={3} rowSpan={4} className={styles.dataImage}>
       <Image
-        src={"/images/home-data-image-" + id + ".jpeg"}
+        src={'/images/home-data-image-' + id + '.jpeg'}
         alt="testImage"
-        width={"600px"}
-        height={"300px"}
+        width={'600px'}
+        height={'300px'}
       />
     </GridItem>
   );
@@ -70,16 +71,16 @@ const IntroCard = ({ entry, id }) => {
   );
 };
 
-const IntroScroll = ({ children }) => {
+const IntroScroll = ({children}) => {
   return (
     <Stack>
       {children.map((entry, i) => {
         return (
           <>
-            <FadeIn key={"fade" + i}>
-              <IntroCard entry={entry} id={i} key={"card" + i} />
+            <FadeIn key={'fade' + i}>
+              <IntroCard entry={entry} id={i} key={'card' + i} />
             </FadeIn>
-            <FadeIn key={"doubleFade" + i}>
+            <FadeIn key={'doubleFade' + i}>
               <div className={styles.divSpacer}></div>
             </FadeIn>
           </>
@@ -87,6 +88,18 @@ const IntroScroll = ({ children }) => {
       })}
     </Stack>
   );
+};
+
+IntroScroll.propTypes = {
+  children: PropTypes.object,
+};
+FadeIn.propTypes = {
+  children: PropTypes.object,
+};
+
+IntroCard.propTypes = {
+  entry: PropTypes.string,
+  id: PropTypes.number,
 };
 
 export default IntroScroll;

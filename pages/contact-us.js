@@ -1,3 +1,9 @@
+import React from 'react';
+
+/**
+ * return contact-us page
+ * @return  {object}            contact-us page
+ */
 function Contact() {
   return (
     <div className="page">

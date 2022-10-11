@@ -1,3 +1,9 @@
+import React from 'react';
+
+/**
+ * return blog page
+ * @return  {object}            blog page
+ */
 function Blog() {
   return (
     <div className="page">

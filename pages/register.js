@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import {Field, Formik} from 'formik';
 import {
   FormControl,
   FormLabel,
@@ -6,26 +6,30 @@ import {
   Flex,
   VStack,
   Input,
-  FormErrorMessage,
   Button,
-} from "@chakra-ui/react";
-import styles from "../styles/RegisterForm.module.css";
-import InputError from "../components/InputError";
-import useValidationSchema from "../hooks/useValidationSchema";
-import useRegister from "../hooks/useRegister";
+} from '@chakra-ui/react';
+import InputError from '../components/InputError';
+import useValidationSchema from '../hooks/useValidationSchema';
+import useRegister from '../hooks/useRegister';
+import React from 'react';
 
+
+/**
+ * return register page
+ * @return  {object}            registration page
+ */
 function Register() {
-  const { registerSchema } = useValidationSchema();
-  const { register } = useRegister();
+  const {registerSchema} = useValidationSchema();
+  const {register} = useRegister();
   return (
     <>
       <Flex align="center" justify="center" h="100vh">
         <Box bg="gray.300" p={6} w="lg">
           <Formik
             initialValues={{
-              email: "",
-              password: "",
-              confirm_password: "",
+              email: '',
+              password: '',
+              confirm_password: '',
             }}
             validationSchema={registerSchema}
             onSubmit={register}
